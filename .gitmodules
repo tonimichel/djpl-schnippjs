@@ -1,0 +1,3 @@
+[submodule "schnippjs/static/schnippjs"]
+	path = schnippjs/static/schnippjs
+	url = git://github.com/henzk/schnipp.js.git
