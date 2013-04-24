@@ -1,0 +1,39 @@
+{% overextends "media_includes.html" %}
+
+{% block public_css %}
+    {{ block.super }}
+{% endblock %}
+
+
+{% block private_js %}
+    {{ block.super }}
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/events.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/net.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/net/post.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/net/get.js"></script>
+    <!-- schnipp dynforms -->
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/base.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/text.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/textarea.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/integer.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/floatingpoint.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/checkbox.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/select.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/color.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/nicedit.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/form.js"></script>
+    <!-- schnipp tree -->
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree/ui.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree/model.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree/ui/jquery.mjs.nestedSortable.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree/ui/nestedsortable.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree/ui/treeview.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree/model/treenode.js"></script>
+    <!-- schnipp models -->
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/models/observable.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/models/entity.js"></script>
+{% endblock %}
