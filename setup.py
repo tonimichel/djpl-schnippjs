@@ -10,7 +10,7 @@ def read(fname):
         return ''
 
 setup(
-    name='django-productline-schnipp-connector',
+    name='django-productline-schnippjs',
     version='0.1',
     description='a django-productline feature to include schnipp.js',
     long_description=read('README.rst'),
@@ -18,7 +18,7 @@ setup(
     keywords='django, FOSD, FOP, feature-oriented-programming, product-line, javascript, schnipp.js',
     author='Toni Michel',
     author_email='toni@schnapptack.de',
-    url="https://github.com/toni/django-productline-schnipp-connector",
+    url="https://github.com/toni/django-productline-schnippjs",
     packages=find_packages(),
     package_dir={'django_productline': 'django_productline'},
     package_data={'django_productline': []},
