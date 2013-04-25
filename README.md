@@ -13,4 +13,5 @@ Installation
 2) Get the schnippjs submodule
 
 git submodule init
+
 git submodule update
