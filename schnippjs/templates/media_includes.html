@@ -2,6 +2,7 @@
 
 {% block public_css %}
     {{ block.super }}
+     <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}schnippjs/styles/schnipp.ui.dialog.css"> 
 {% endblock %}
 
 
@@ -23,7 +24,6 @@
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/checkbox.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/select.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/color.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/nicedit.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/form.js"></script>
     <!-- schnipp tree -->
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree.js"></script>
@@ -36,4 +36,7 @@
     <!-- schnipp models -->
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/models/observable.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/models/entity.js"></script>
+    <!-- schnipp ui -->
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/ui.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/ui/dialog.js"></script>
 {% endblock %}
