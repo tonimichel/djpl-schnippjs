@@ -19,7 +19,7 @@ setup(
     author_email='toni@schnapptack.de',
     url="https://github.com/toni/django-productline-schnippjs",
     packages=find_packages(),
-    package_dir={'django_productline': 'django_productline'},
+    package_dir={'schnippjs': 'schnippjs'},
     package_data={'django_productline': []},
     include_package_data=True,
     scripts=[],
