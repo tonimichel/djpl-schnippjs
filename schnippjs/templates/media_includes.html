@@ -3,20 +3,23 @@
 {% block public_css %}
     {{ block.super }}
      <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}schnippjs/styles/schnipp.ui.dialog.css"> 
+     <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}schnippjs/styles/dynforms/fields.css"> 
+     <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}schnippjs/styles/dynforms/fields/dropdownselect.css"> 
 {% endblock %}
 
 
-{% block private_js %}
+{% block admin_js %}
     {{ block.super }}
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/events.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/net.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/net/post.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/net/get.js"></script>
     <!-- schnipp dynforms -->
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields.js"></script>
-    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/base.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/abstract_field.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/abstractselect.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/primitive_field.js"></script>
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/dropdownselect.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/text.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/textarea.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/integer.js"></script>
@@ -25,6 +28,8 @@
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/select.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/color.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/form.js"></script>
+   
+    
     <!-- schnipp tree -->
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree/ui.js"></script>
@@ -33,7 +38,9 @@
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree/ui/nestedsortable.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree/ui/treeview.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree/model/treenode.js"></script>
+    
     <!-- schnipp models -->
+    <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/models.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/models/observable.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/models/entity.js"></script>
     <!-- schnipp ui -->
