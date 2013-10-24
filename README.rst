@@ -42,16 +42,14 @@ schema and pass them to the template.
         })
         
 
-... code-block:: html
+... code-block:: javascript
 
-    <script type="text/javascript">
-        $(function() {
-            var form = schnipp.dynforms.form({{ schema|safe }}, {{ context|safe }});
-            $('#b').append(form.render())
-            form.initialize()
-            
-        })
-    </script>
+    $(function() {
+        var form = schnipp.dynforms.form({{ schema|safe }}, {{ context|safe }});
+        $('#b').append(form.render())
+        form.initialize()
+        
+    })
 
         
 Take a look at the testproduct in ``products/testproduct`` for a complete example.
