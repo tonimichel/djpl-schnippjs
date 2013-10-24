@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+    {% include "media_includes.html" %}
+</head>
+
+<body>
+
+    <script>
+        $(function() {
+            var form = schnipp.dynforms.form({{ schema|safe }}, {});
+            $('#a').append(form.render())
+            form.initialize()
+            
+            var form = schnipp.dynforms.form({{ schema|safe }}, {{ context|safe }});
+            $('#b').append(form.render())
+            form.initialize()
+            
+        })
+    </script>
+
+
+    <div id="a"></div>
+    <div id="b"></div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+    

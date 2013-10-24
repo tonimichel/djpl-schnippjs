@@ -1,0 +1,6 @@
+-e git+https://github.com/henzk/ape.git#egg=ape
+-e git+https://github.com/audreyr/cookiecutter.git@5fb9b77869f43dfc1fb746701a32d7e68678092c#egg=cookiecutter
+-e git+https://github.com/henzk/djpl-container-management.git#egg=djpl-container-management
+-e git+https://github.com/henzk/django-productline.git#egg=django-productline
+-e git+https://github.com/schnapptack/djpl-jsbasics.git#egg=djpl-jsbasics
+selenium
