@@ -42,7 +42,7 @@ schema and pass them to the template.
         })
         
 
-... code-block:: javascript
+.. code-block:: javascript
 
     $(function() {
         var form = schnipp.dynforms.form({{ schema|safe }}, {{ context|safe }});
