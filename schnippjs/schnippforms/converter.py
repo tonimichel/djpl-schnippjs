@@ -13,7 +13,7 @@ def fields_for_model(model, fields):
         try:
             translator = MAPPING[type(field)]
         except KeyError:
-            raise SchnippRepresentationDoesNotExist()
+            raise SchnippRepresentationDoesNotExist('There is no representation for this model field: %s' % type(field))
         schnipp_repr.append(translator(field))
     return schnipp_repr
 
