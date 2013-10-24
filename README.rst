@@ -22,7 +22,7 @@ model. The frontend is fully javascript. As we need a programmtic form api and s
 we decide to use schnippjs. Instead of declaring the form schema manually we just can convert our models to a schnippform
 schema and pass them to the template.
 
-.. python::
+.. code-block:: python
 
     from django.shortcuts import render
     from schnippjs.schnippforms import converter
@@ -42,16 +42,14 @@ schema and pass them to the template.
         })
         
 
-.. html::
+.. code-block:: javascript
 
-    <script type="text/javascript">
-        $(function() {
-            var form = schnipp.dynforms.form({{ schema|safe }}, {{ context|safe }});
-            $('#b').append(form.render())
-            form.initialize()
-            
-        })
-    </script>
+    $(function() {
+        var form = schnipp.dynforms.form({{ schema|safe }}, {{ context|safe }});
+        $('#b').append(form.render())
+        form.initialize()
+        
+    })
 
         
 Take a look at the testproduct in ``products/testproduct`` for a complete example.
