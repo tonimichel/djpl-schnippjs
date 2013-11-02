@@ -28,7 +28,18 @@ def field_descriptor(field, **kwargs):
 
 
 def text(field):
-    return field_descriptor(field, type='text')
+    '''
+    Returns text field reprsentation or a dropdownselect in case  choices are 
+    defined.
+    '''
+    if field.choices != None:
+        options = [dict(label=obj[1], value=obj[0]) for obj in field.choices]
+        return field_descriptor(field, 
+            type='dropdownselect', 
+            options=options
+        )
+    else:
+        return field_descriptor(field, type='text')
 
 def textarea(field):
     return field_descriptor(field, type='textarea')
