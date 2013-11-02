@@ -28,12 +28,13 @@ def form_for_model(model, fields, name):
     }
     
 
-def object_to_context(obj):
+def object_to_context(obj, fields):
     '''
     Converts ``obj`` to schnippform context.
     '''
+    
     schema = dict()
-    for name in obj.__class__._meta.get_all_field_names():
+    for name in fields:
         val = getattr(obj, name)
         if type(obj.__class__._meta.get_field_by_name(name)[0]) in [models.ForeignKey]:
             # special handling for ForeignKey fields
