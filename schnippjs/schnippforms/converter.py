@@ -32,7 +32,6 @@ def object_to_context(obj, fields):
     '''
     Converts ``obj`` to schnippform context.
     '''
-    
     schema = dict()
     for name in fields:
         val = getattr(obj, name)
