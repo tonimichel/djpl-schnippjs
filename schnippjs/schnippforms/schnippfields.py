@@ -32,7 +32,7 @@ def text(field):
     Returns text field reprsentation or a dropdownselect in case  choices are 
     defined.
     '''
-    if field.choices != None:
+    if field.choices != []:
         options = [dict(label=obj[1], value=obj[0]) for obj in field.choices]
         return field_descriptor(field, 
             type='dropdownselect', 
