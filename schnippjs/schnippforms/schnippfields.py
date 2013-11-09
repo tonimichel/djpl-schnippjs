@@ -59,7 +59,15 @@ def modelchoice(name, field, instance=None):
         type='dropdownselect', 
         options=fk_options
     )
-    
+
+def dropdownselect(name, field, instance=None):
+    options = [dict(label=obj[1], value=obj[0]) for obj in field.choices]
+    return field_descriptor(
+        name, 
+        field, 
+        type='dropdownselect', 
+        options=options
+    )
 
 def datepicker(name, field, instance=None):
     return field_descriptor(name, field, type='datepicker')

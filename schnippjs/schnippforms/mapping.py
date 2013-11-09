@@ -7,6 +7,7 @@ FIELDS = {
     forms.FloatField: schnippfields.floatingpoint,
     (forms.CharField, forms.Textarea): schnippfields.textarea,
     forms.ModelChoiceField: schnippfields.modelchoice,
+    forms.TypedChoiceField: schnippfields.dropdownselect,
     forms.DateField: schnippfields.datepicker,
 }
 
