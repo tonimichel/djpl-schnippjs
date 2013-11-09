@@ -9,5 +9,5 @@ MAPPING = {
     models.FloatField: schnippfields.floatingpoint,
     models.TextField: schnippfields.textarea,
     models.ForeignKey: schnippfields.foreignkey,
-    models.DateField: schnippfields.text,
+    models.DateField: schnippfields.datepicker,
 }
