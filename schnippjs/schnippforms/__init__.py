@@ -1,5 +1,6 @@
 from schnippjs.schnippforms.mapping import FIELDS
 from django.db import models
+import datetime
 
 
 def prepare(FIELDS):
@@ -32,16 +33,25 @@ def get_schema(form, name, instance=None):
         fields=get_fields(form, instance)
     )
 
-def get_context(obj):
+def get_context(obj, fields=None):
     '''
     Converts ``obj`` to schnippform context.
     '''
+    fields = fields or obj.__class__._meta.get_all_field_names() 
     context = {}
-    for name in obj.__class__._meta.get_all_field_names():
+    for name in fields:
         val = getattr(obj, name)
         if type(obj.__class__._meta.get_field_by_name(name)[0]) in [models.ForeignKey]:
             # special handling for ForeignKey fields
             val = getattr(val, 'pk')
+        
+        if type(val) == datetime.date:
+            val = val.strftime('%d.%m.%Y')
+        
+        if type(val) == datetime.datetime:
+            val = 'HURENSOHN'
+            
+            
         context[name] = val
     return context        
     
