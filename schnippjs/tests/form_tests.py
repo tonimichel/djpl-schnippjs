@@ -2,7 +2,9 @@ from django.test import TestCase
 from schnippjs.schnippforms.forms import SchnippForm
 from django import forms
 from schnippjs import schnippforms
+from schnippjs.schnippforms import schnippfields
 from testproduct import models
+
 
 
 class FooForm(SchnippForm):
@@ -65,6 +67,47 @@ class schnippformsTests(TestCase):
         self.assertTrue(schema.has_key('name'))
         for schnield in schema['fields']:
             self.check_attrs(schnield['name'], form.fields[schnield['name']], schnield)
+            
+            
+    
+    def test_field_descriptor(self):
+    
+        field = forms.CharField(max_length=1, initial=2)
+        default = None
+        schnield = schnippfields.field_descriptor('test', field, default)
+        self.assertEquals(schnield['default_value'], 2)
+        
+        default = 10
+        schnield = schnippfields.field_descriptor('test', field, default)
+        self.assertEquals(schnield['default_value'], default)
+        
+        
+    
+    def test_schema_generation_with_default_passed_as_context(self):
+        schema = schnippforms.get_schema(FooForm(), 'hansi', dict(some_name='schnippjs', some_int=5))
+        field = schnippforms.get_field_from_schema('some_name', schema)
+        self.assertEquals(field['default_value'], 'schnippjs')
+        field = schnippforms.get_field_from_schema('some_int', schema)
+        self.assertEquals(field['default_value'], 5)
+        
+        
+    
+    def test_get_field_from_schema(self):
+        schema = schema = schnippforms.get_schema(FooForm(), 'hansi')
+        field = schnippforms.get_field_from_schema('some_name', schema)
+        self.assertEquals(field['name'], 'some_name')
+        
+        
+        
+    def test_get_schema_with_formclass_instead_of_instance(self):
+        self.assertRaises(
+            schnippforms.FormInstancesOnly,
+            schnippforms.get_schema,
+            FooForm,
+            'testformname'
+        )        
+            
+            
             
 
         

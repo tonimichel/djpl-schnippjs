@@ -2,7 +2,7 @@ from django.db import models
 
 
 
-def field_descriptor(name, field, **kwargs):
+def field_descriptor(name, field, default, **kwargs):
     '''
     Generates the basic schnipp field descriptor.
     Use kwargs to set field-individual attributes.
@@ -15,62 +15,60 @@ def field_descriptor(name, field, **kwargs):
 
     if field.help_text:
         descriptor['description'] = field.help_text
-    if field.initial:
+    if default:
+        descriptor['default_value'] = default
+    elif field.initial:
         descriptor['default_value'] = field.initial
+    
     if field.required:
         descriptor['required'] = True
         
     descriptor.update(**kwargs)
     return descriptor
 
+    
 
 
 
-
-def text(name, field, instance=None):
+def text(name, field, default=None):
     '''
     Returns text field reprsentation or a dropdownselect in case  choices are 
     defined.
     '''
-    return field_descriptor(name, field, type='text')
-    if field.choices != []:
-        options = [dict(label=obj[1], value=obj[0]) for obj in field.choices]
-        return field_descriptor(field, 
-            type='dropdownselect', 
-            options=options
-        )
-    else:pass
+    return field_descriptor(name, field, default, type='text')
         
 
-def textarea(name, field, instance=None):
-    return field_descriptor(name, field, type='textarea')
+def textarea(name, field, default=None):
+    return field_descriptor(name, field, default, type='textarea')
     
-def integer(name, field, instance=None):
-    return field_descriptor(name, field, type='integer')
+def integer(name, field, default=None):
+    return field_descriptor(name, field, default, type='integer')
     
-def floatingpoint(name, field, instance=None):
-    return field_descriptor(name, field, type='floatingpoint')
+def floatingpoint(name, field, default=None):
+    return field_descriptor(name, field, default, type='floatingpoint')
     
-def modelchoice(name, field, instance=None):
+def modelchoice(name, field, default=None):
     fk_options = [dict(label=str(obj), value=obj.id) for obj in field.queryset]
     return field_descriptor(
         name, 
         field, 
+        default,
         type='dropdownselect', 
         options=fk_options
     )
 
-def dropdownselect(name, field, instance=None):
+def dropdownselect(name, field, default=None):
     options = [dict(label=obj[1], value=obj[0]) for obj in field.choices]
     return field_descriptor(
         name, 
         field, 
+        default,
         type='dropdownselect', 
         options=options
     )
 
-def datepicker(name, field, instance=None):
-    return field_descriptor(name, field, type='datepicker')
+def datepicker(name, field, default=None):
+    return field_descriptor(name, field, default, type='datepicker')
     
     
     

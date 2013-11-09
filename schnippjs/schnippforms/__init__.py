@@ -16,21 +16,25 @@ def prepare(FIELDS):
 
 PREPARED_FIELDS = prepare(FIELDS)
 
-def get_fields(form, instance=None):
+def get_fields(form, context=None):
+    context = context or {}
     schnields = []
+
+    if not hasattr(form, 'fields'):
+        raise FormInstancesOnly()    
+    
     for name, field in form.fields.items():
         field_type = type(field)
         widget_type = type(field.widget)
         repr = PREPARED_FIELDS[(field_type, widget_type)]
-        schnields.append(repr(name, field, instance))
+        default_value = context.get(name, None)
+        schnields.append(repr(name, field, default_value))
     return schnields    
     
-    
-    
-def get_schema(form, name, instance=None):
+def get_schema(form, name, context=None):
     return dict(
         name=name,
-        fields=get_fields(form, instance)
+        fields=get_fields(form, context)
     )
 
 def get_context(obj, fields=None):
@@ -49,11 +53,25 @@ def get_context(obj, fields=None):
             val = val.strftime('%d.%m.%Y')
         
         if type(val) == datetime.datetime:
-            val = 'HURENSOHN'
-            
+            val = 'not implemented yet'
             
         context[name] = val
     return context        
     
+
+def get_field_from_schema(field_name, schema):
+    '''
+    Returns the field with name ``field_name`` from schema.
+    '''
+    for f in schema['fields']:
+        if f['name'] == field_name:
+            return f
+
+
+class FormInstancesOnly(Exception):
+
+    def __unicode__(self):
+        return 'You probably passed a form class instead of an instance.'
+
 
 
