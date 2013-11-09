@@ -1,13 +1,20 @@
-from django.db import models
-from . import schnippfields
+from django import forms
+from schnippjs.schnippforms import schnippfields
 
-
-# Maps django model fields to their schnipp reprsentation
-MAPPING = {
-    models.CharField : schnippfields.text,
-    models.IntegerField: schnippfields.integer,
-    models.FloatField: schnippfields.floatingpoint,
-    models.TextField: schnippfields.textarea,
-    models.ForeignKey: schnippfields.foreignkey,
-    models.DateField: schnippfields.datepicker,
+FIELDS = {
+    forms.CharField : schnippfields.text,
+    forms.IntegerField: schnippfields.integer,
+    forms.FloatField: schnippfields.floatingpoint,
+    (forms.CharField, forms.Textarea): schnippfields.textarea,
+    forms.ModelChoiceField: schnippfields.modelchoice,
+    forms.DateField: schnippfields.datepicker,
 }
+
+
+
+
+
+
+
+   
+

@@ -12,9 +12,23 @@
             $('#a').append(form.render())
             form.initialize()
             
+            
             var form = schnipp.dynforms.form({{ schema|safe }}, {{ context|safe }});
             $('#b').append(form.render())
             form.initialize()
+
+            var new_name = 'schnippjs rocks'
+            form.fields.name.set_data(new_name)
+            $.ajax({
+                type: 'post',
+                url: '{% url "testing" %}',
+                dataType: 'json',
+                data: {'ajax_data': JSON.stringify(form.get_data())},
+                success: function(response) {
+                    if (response.name === new_name )
+                        $('body').append('<h1 id="form-saved-yeah">Form saved</h1>')
+                }
+            })
             
         })
     </script>
