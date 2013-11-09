@@ -27,7 +27,7 @@ def field_descriptor(field, **kwargs):
 
 
 
-def text(field):
+def text(field, model):
     '''
     Returns text field reprsentation or a dropdownselect in case  choices are 
     defined.
@@ -41,18 +41,26 @@ def text(field):
     else:
         return field_descriptor(field, type='text')
 
-def textarea(field):
+def textarea(field, model):
     return field_descriptor(field, type='textarea')
     
-def integer(field):
+def integer(field, model):
     return field_descriptor(field, type='integer')
     
-def floatingpoint(field):
+def floatingpoint(field, model):
     return field_descriptor(field, type='floatingpoint')
     
-def foreignkey(field):
+def foreignkey(field, model):
     fk_options = [dict(label=str(obj), value=obj.id) for obj in field.rel.to.objects.all()]
     return field_descriptor(field, 
         type='dropdownselect', 
         options=fk_options
     )
+    
+
+def datepicker(field, model):
+    return field_descriptor(field, type='datepicker')
+    
+    
+    
+    
