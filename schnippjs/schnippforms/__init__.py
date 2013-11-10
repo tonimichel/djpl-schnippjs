@@ -47,7 +47,9 @@ def get_context(obj, fields=None):
         val = getattr(obj, name)
         if type(obj.__class__._meta.get_field_by_name(name)[0]) in [models.ForeignKey]:
             # special handling for ForeignKey fields
-            val = getattr(val, 'pk')
+            if hasattr(val, 'pk'):
+                val = getattr(val, 'pk')
+    
         
         if type(val) == datetime.date:
             val = val.strftime('%d.%m.%Y')
