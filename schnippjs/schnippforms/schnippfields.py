@@ -70,6 +70,12 @@ def dropdownselect(name, field, default=None):
 def datepicker(name, field, default=None):
     return field_descriptor(name, field, default, type='datepicker')
     
+def hiddeninput(name, field, default=None):
+    
+    print field._choices    
+    
+    return field_descriptor(name, field, default, type='hiddeninput')
+    
     
     
     
