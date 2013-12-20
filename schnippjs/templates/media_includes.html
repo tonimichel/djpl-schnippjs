@@ -7,14 +7,12 @@
      <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}schnippjs/styles/dynforms/fields.css"> 
      <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}schnippjs/styles/dynforms/fields/dropdownselect.css"> 
      <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}schnippjs/styles/dynforms/fields/datepicker.css"> 
+     <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}schnippjs/styles/dynforms/fields/inlines.css"> 
 {% endblock %}
 
 
 {% block public_js %}
     {{ block.super }}
-    
-    
-       
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/events.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/net.js"></script>
@@ -36,7 +34,7 @@
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/hiddeninput.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/optionalform.js"></script>
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/form.js"></script>
-   
+   <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/dynforms/fields/inlines.js"></script>
     
     <!-- schnipp tree -->
     <script type="text/javascript" src="{{STATIC_URL}}schnippjs/src/schnipp/tree.js"></script>
