@@ -47,6 +47,10 @@ def integer(name, field, default=None):
 def floatingpoint(name, field, default=None):
     return field_descriptor(name, field, default, type='floatingpoint')
     
+def checkbox(name, field, default=None):
+    return field_descriptor(name, field, default, type='checkbox')
+    
+    
 def modelchoice(name, field, default=None):
     fk_options = [dict(label=str(obj), value=obj.id) for obj in field.queryset]
     return field_descriptor(

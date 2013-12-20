@@ -11,6 +11,7 @@ FIELDS = {
     forms.ModelChoiceField: schnippfields.modelchoice,
     forms.TypedChoiceField: schnippfields.dropdownselect,
     forms.DateField: schnippfields.datepicker,
+    forms.BooleanField: schnippfields.checkbox,
 }
 
 
