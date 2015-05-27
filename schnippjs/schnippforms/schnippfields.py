@@ -14,7 +14,7 @@ def field_descriptor(name, field, default, **kwargs):
     
 
     if field.help_text:
-        descriptor['description'] = field.help_text
+        descriptor['description'] = unicode(field.help_text)
     if default:
         descriptor['default_value'] = default
     elif field.initial:
@@ -77,6 +77,19 @@ def datepicker(name, field, default=None):
 def hiddeninput(name, field, default=None):
     return field_descriptor(name, field, default, type='hiddeninput')
     
-    
+
+def multiselect(name, field, default=None):
+    options = [dict(label=obj[1], value=obj[0]) for obj in field.choices]
+    return field_descriptor(
+        name, 
+        field, 
+        default,
+        type='multiselect', 
+        options=options
+    )
+
+
+
+
     
     
