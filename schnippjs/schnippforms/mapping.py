@@ -10,18 +10,10 @@ FIELDS = {
     (forms.ChoiceField, forms.HiddenInput): schnippfields.hiddeninput,
     forms.ModelChoiceField: schnippfields.modelchoice,
     forms.TypedChoiceField: schnippfields.dropdownselect,
+    forms.ChoiceField: schnippfields.dropdownselect,
     forms.DateField: schnippfields.datepicker,
     forms.BooleanField: schnippfields.checkbox,
     forms.MultipleChoiceField: schnippfields.multiselect,
     forms.TypedMultipleChoiceField: schnippfields.multiselect,
     forms.ModelMultipleChoiceField: schnippfields.multiselect,
 }
-
-
-
-
-
-
-
-   
-
