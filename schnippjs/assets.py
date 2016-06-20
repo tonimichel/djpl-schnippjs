@@ -2,7 +2,7 @@
 
 def refine_STATICS(original):
 
-    original['PUBLIC']['css']['files'] += [
+    original['GENERAL']['css']['files'] += [
         'schnippjs/styles/schnipp.ui.dialog.css',
         'schnippjs/styles/dynforms.css',
         'schnippjs/styles/dynforms/fields.css',
@@ -15,7 +15,7 @@ def refine_STATICS(original):
         'schnippjs/styles/dynforms/fields/intslider.css',
     ]
 
-    original['PUBLIC']['js']['files'] += [
+    original['GENERAL']['js']['files'] += [
         'schnippjs/src/schnipp.js',
         'schnippjs/src/schnipp/events.js',
         'schnippjs/src/schnipp/net.js',
