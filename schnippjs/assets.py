@@ -45,15 +45,6 @@ def refine_STATICS(original):
         'schnippjs/src/schnipp/dynforms/fields/intslider.js',
         'schnippjs/src/schnipp/dynforms/fields/multiselect.js',
 
-        #<!-- schnipp tree -->
-        'schnippjs/src/schnipp/tree.js',
-        'schnippjs/src/schnipp/tree/ui.js',
-        'schnippjs/src/schnipp/tree/model.js',
-        'schnippjs/src/schnipp/tree/ui/jquery.mjs.nestedSortable.js',
-        'schnippjs/src/schnipp/tree/ui/nestedsortable.js',
-        'schnippjs/src/schnipp/tree/ui/treeview.js',
-        'schnippjs/src/schnipp/tree/model/treenode.js',
-
         #<!-- schnipp models -->
         'schnippjs/src/schnipp/models.js',
         'schnippjs/src/schnipp/models/exceptions.js',
